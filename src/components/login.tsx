@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { LoginService } from './services/LoginService';
+import { LoginService } from '../services/LoginService';
 
 interface CredentialsState {
     userName: string,
@@ -12,6 +12,7 @@ interface CustomEvent {
     target: HTMLInputElement
 }
 
+// Login class component
 export class Login extends React.Component<{}, CredentialsState> {
 
     state: CredentialsState = {

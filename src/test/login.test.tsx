@@ -1,7 +1,7 @@
 
-import { Login } from './login';
-import { LoginService } from './services/LoginService';
-jest.mock('./services/LoginService');
+import { Login } from '../components/login';
+import { LoginService } from '../services/LoginService';
+//jest.mock('./services/LoginService');
 import * as ReactDOM from 'react-dom';
 import React from 'react';
 import { fireEvent, waitForElement } from '@testing-library/react';
@@ -11,25 +11,27 @@ describe('Login component tests', () => {
 
     let container: HTMLDivElement
     const loginServiceSpy = jest.spyOn(LoginService.prototype, 'login');
-
+    // test setup
     beforeEach(() => {
         container = document.createElement('div');
         document.body.appendChild(container);
         ReactDOM.render(<Login />, container);
     })
-
+    // after each test, clear everything
     afterEach(() => {
         document.body.removeChild(container);
         container.remove();
     })
 
     it('Renders correctly initial document', () => {
+        //check the number of input elements
         const inputs = container.querySelectorAll('input');
         expect(inputs).toHaveLength(3);
         expect(inputs[0].name).toBe('login');
         expect(inputs[1].name).toBe('password');
         expect(inputs[2].value).toBe('Login');
 
+        // check label element doesnt render initially (conditional rendering part)
         const label = container.querySelector('label');
         expect(label).not.toBeInTheDocument();
 

@@ -3,8 +3,10 @@ import * as axios from 'axios';
 axios.default.defaults.validateStatus = function () {
     return true;
 };
+// access
 const serverUrl = 'http://localhost:8080';
 
+// Login service component
 export class LoginService {
 
     public async login(userName: string, password: string): Promise<boolean> {

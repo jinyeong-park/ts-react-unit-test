@@ -1,5 +1,5 @@
 import React from 'react';
-import './App.css';
+import '../styles/App.css';
 import { Login } from './login';
 
 function App() {
@@ -9,5 +9,6 @@ function App() {
     </div>
   );
 }
+
 
 export default App;
